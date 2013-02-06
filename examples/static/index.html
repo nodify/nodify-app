@@ -1,6 +1,29 @@
 <html>
+  <head>
+    <title>Simple Nodify App Test</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready( function() {
+        setTimeout( function () {
+          $.ajax( {
+            url: "/templates",
+            async: true,
+            dataType: 'json',
+            type: 'GET',
+            success: function( templates ) {
+              $('#replaceme').html( templates.main );
+            },
+            error: function( jqXHR, textStatus, errorThrown ) {
+              console.log( 'error: ' + textStatus );
+              console.log( errorThrown );
+            }
+          } );
+        }, 1500 );
+      } );
+    </script>
+  </head>
   <body>
-    <h1>testing...</h1>
-    <p>This is a test.</p>
+    <h1>Simple Nodify App Test</h1>
+    <div id="replaceme"/>
   </body>
 </html>

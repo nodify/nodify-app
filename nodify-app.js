@@ -93,7 +93,8 @@
         }
 
         if( o.templates ) {
-          app.use( '/templates', require( './templates' )( o.templates ) );
+          var _t = new (require( './templates' ))( o.templates );
+          app.use( '/templates', _t.middleware() );
         }
 
         if( o.static ) {
