@@ -27,7 +27,7 @@
     "nodify-app": "./bin/nodify-app"
   },
   "directories": [ "examples", "bin" ],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./node-app.js",
   "keywords": ["app", "framework", "glue"]
 }
