@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var props = require( 'node-props' );
+var napp  = require( '../nodify-app' );
+
+props.read( function( g ) {
+  ( new napp( g ) ).init( function( server ) {
+    server.listen();
+  } );
+} );

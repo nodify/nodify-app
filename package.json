@@ -1,0 +1,33 @@
+{
+  "name": "nodify-app",
+  "description": "Simple framework for connect.js & express.js apps",
+  "maintainers": [
+    {
+      "name": "Meadhbh Hamrick",
+      "email": "meadhbh@smithee.us",
+      "web": "http://nodify.us/"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/nodify/nodify-app/raw/master/LICENSE"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/nodify/nodify-app"
+    }
+  ],
+  "dependencies": {
+    "node-props": "*"
+  },
+  "bin": {
+    "nodify-app": "./bin/nodify-app"
+  },
+  "directories": [ "examples", "bin" ],
+  "version": "0.1.1",
+  "main": "./node-app.js",
+  "keywords": ["app", "framework", "glue"]
+}
