@@ -104,7 +104,7 @@ the config object.
 nodify-app can use either connect.js or express.js as a base to build a server.
 By default, connect is used.
 
-*bodyParser* - true
+*bodyParser* - false
 
 If the bodyParser property is present in the configuration option and is set
 to a non-false value (like the boolean true value), the connect.js bodyParser

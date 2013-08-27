@@ -35,7 +35,9 @@
     }
 
     if( this.options.persist ) {
-      ( new require( 'nodify-persist' ) ).init( function( err, target ) {
+      var _p = require( 'nodify-persist' );
+      var instance = new _p( this.options.persist );
+      instance.init( function( err, target ) {
         if( err ) {
           throw err;
         }
@@ -88,15 +90,6 @@
           app.use( engine.logger( o.access ) );
         }
 
-        if( o.source ) {
-          require( o.source ) ( app, o, that.facilities );
-        }
-
-        if( o.templates ) {
-          var _t = new (require( './templates' ))( o.templates );
-          app.use( '/templates', _t.middleware() );
-        }
-
         if( o.static ) {
           var params;
           var path;
@@ -107,6 +100,19 @@
             params = o.static;
           }
           app.use( engine.static( path, params ) );
+        }
+
+        if( o.templates ) {
+          var _t = new (require( './templates' ))( o.templates );
+          app.use( '/templates', _t.middleware() );
+        }
+
+        if( o.bodyParser ) {
+          app.use( engine.bodyParser( ) );
+        }
+
+        if( o.source ) {
+          require( process.cwd() + '/' + o.source ) ( app, o, that.facilities );
         }
 
         if( o.router ) {
